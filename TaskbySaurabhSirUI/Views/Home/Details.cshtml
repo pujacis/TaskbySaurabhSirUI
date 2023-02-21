@@ -96,8 +96,9 @@
     </dl>
 
     <form asp-action="Deleteperson">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="GetPerson">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        @*<a asp-action="GetPerson">Back to List</a>*@
+        <a asp-action="GetPerson" class="btn btn-primary">Back</a>
     </form>
 </div>
 @section Scripts {

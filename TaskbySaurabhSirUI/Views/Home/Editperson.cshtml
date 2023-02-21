@@ -81,16 +81,22 @@
             <div class="form-group">
                 <img width="300" height="200" src="@String.Format("data:image/jpg;base64,{0}",Model.base64data)" />
             </div>
+            <div class="btn-group btn-group-sm">
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                    <input type="submit" value="Save" class="btn btn-primary" style="margin-right:10px" />
             </div>
+          
+                <div>
+                    <a asp-action="GetPerson" class="btn btn-primary">Back</a>
+                    @* <a asp-action="GetPerson">Back to List</a>*@
+                </div>
+                </div>
+           
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="GetPerson">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{

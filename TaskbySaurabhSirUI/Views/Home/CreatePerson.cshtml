@@ -72,19 +72,21 @@
                 <input asp-for="base64data" type="file" class="form-control" />
                 <span asp-validation-for="base64data" class="text-danger"></span>
             </div>
-        
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn  btn-success" />
+                <a asp-action="GetPerson" class="btn btn-primary">Back</a>
             </div>
             <br />
-           
+            <div class="form-group">
+                @* <a asp-action="Index">Back to List</a>*@
+               
+            </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
