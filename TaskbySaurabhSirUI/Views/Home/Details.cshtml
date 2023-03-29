@@ -4,102 +4,112 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+
 
 <div>
-    <h4>Person</h4>
-    <hr />
-    <dl class="row">
-        @* <dt class = "col-sm-2">
-        @Html.DisplayNameFor(model => model.PersonId)
-        </dt>*@
-        @*   <dd class = "col-sm-10">
-        @Html.DisplayFor(model => model.PersonId)
-        </dd>*@
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CountryId)
-        </dt>
 
-        <dd class="col-sm-10">
+   
+    <section class="vh-100 bg"
+             style="background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));">
+        <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
 
-            @Html.DropDownListFor(x=>x.CountryId , (IEnumerable<SelectListItem>)ViewBag.Con, new { id = "CountryId", @class = "form-control", @disabled = "disabled" })
+                            <dl class="row">
 
-        </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.FirstName)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.FirstName)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.LastName)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.LastName)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.Email)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.CountryId)
+                                </dt>
 
+                                <dd class="col-sm-10">
 
+                                    @Html.DropDownListFor(x=>x.CountryId , (IEnumerable<SelectListItem>)ViewBag.Con, new { id = "CountryId", @class = "form-control", @disabled = "disabled" })
 
-
-
-        @* <dd class = "col-sm-10">
-        @Html.DisplayFor(model => model.CountryId)
-        </dd>*@
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StateId)
-        </dt>
-
-        <dd class="col-sm-10">
-            <select id="stateId" class="form-control" name="StateId" disabled>
-            </select>
-        </dd>
-
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CityId)
-        </dt>
-
-        <dd class="col-sm-10">
-
-            <select id="city-dd" class="form-control" name="CityId" disabled="true">
-            </select>
-
-        </dd>
+                                </dd>
 
 
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FileName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FileName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.base64data)
-        </dt>
-        <dd class="col-sm-10">
-            @*@Html.DisplayFor(model => model.base64data)*@
-            <img width="300" height="200" src="@String.Format("data:image/jpg;base64,{0}",Model.base64data)" />
-        </dd>
-    </dl>
 
-    <form asp-action="Deleteperson">
-        <input type="submit" value="Delete" class="btn btn-danger" /> 
-        @*<a asp-action="GetPerson">Back to List</a>*@
-        <a asp-action="GetPerson" class="btn btn-primary">Back</a>
-    </form>
+
+
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.StateId)
+                                </dt>
+
+                                <dd class="col-sm-10">
+                                    <select id="stateId" class="form-control" name="StateId" disabled>
+                                    </select>
+                                </dd>
+
+
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.CityId)
+                                </dt>
+
+                                <dd class="col-sm-10">
+
+                                    <select id="city-dd" class="form-control" name="CityId" disabled="true">
+                                    </select>
+
+                                </dd>
+
+
+
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.Address)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.FileName)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.FileName)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.base64data)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @*@Html.DisplayFor(model => model.base64data)*@
+                                    <img width="300" height="200" src="@String.Format("data:image/jpg;base64,{0}",Model.base64data)" />
+                                </dd>
+                            </dl>
+
+                            <form asp-action="Deleteperson">
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+
+                                <a asp-action="GetPerson" class="btn btn-primary">Back</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
 </div>
 @section Scripts {
     @{

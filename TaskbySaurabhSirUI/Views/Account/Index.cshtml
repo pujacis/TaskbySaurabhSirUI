@@ -64,7 +64,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
-<div class="limiter">
+<div class="limiter" >
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
@@ -81,38 +81,54 @@
 				<form asp-action="Index" class="login100-form validate-form">
 					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">Username</span>
-						<input asp-for="Username" class="input100" placeholder="Enter username">
+					<span class="label-input100" style="color:black">Username</span>
+					<input asp-for="Username" class="form-control" placeholder="Enter username">
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-						<span class="label-input100">Password</span>
-						<input asp-for="Password" class="input100" type="password" placeholder="Enter password">
-						<span class="focus-input100"></span>
-					</div>
 
-				@*	<div class="flex-sb-m w-full p-b-30">
+				<div  class="input-group" data-validate="Password is required" id="show_hide_password">
+					<span class="label-input100" style="color:black">Password</span>
+					<input asp-for="Password" class="form-control" type="password" placeholder="Enter password">
+					<div class="input-group-addon">
+						<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+						</div>
+					<span class="focus-input100"></span>
+					</div>
+				
+				
+				
+					<div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
+							<label class="label-checkbox100" for="ckb1" style="color:black">
 								Remember me
 							</label>
 						</div>
 
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
-					</div>*@
+					<p class="usr-rge col-md-offset-2">
+						@*// <a href="@Url.Action("ResetPassword","Account")">ResetPassword?</a>*@
+						@Html.ActionLink("Forgot password", "ForgotPassword", "Account")
 
-					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn">
-							Login
-						</button>
+
+					</p>
+					
+
+
+				</div>
+				<div class="btn-group">
+				<div class="container-login100-form-btn">
+					<button type="submit" class="login100-form-btn">
+						Login
+					</button>
+				</div>
+		
+				<div class="container-login100-form-btn">
+					<a asp-action="Register" class="login100-form-btn"></>Register</a>
+					</div>
 					</div>
 				</form>
+				
 			</div>
 		</div>
 	</div>
@@ -137,4 +153,23 @@
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
+	 <script src="~/lib/jquery/dist/jquery.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script type="text/javascript">
+	$(document).ready(function() {
+    $("#show_hide_password").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "fa-eye-slash" );
+            $('#show_hide_password i').removeClass( "fa-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "fa-eye-slash" );
+            $('#show_hide_password i').addClass( "fa-eye" );
+        }
+    });
+});
+	</script>
+
 }

@@ -5,20 +5,12 @@
     ViewData["Title"] = "CreatePerson";
 }
 
-<h1>CreatePerson</h1>
-
-<h4>Person</h4>
-<hr />
 
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CreatePerson" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           @* <div class="form-group">
-                <label asp-for="PersonId" class="control-label"></label>
-                <input asp-for="PersonId" class="form-control" />
-                <span asp-validation-for="PersonId" class="text-danger"></span>
-            </div>*@
+         
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -42,21 +34,17 @@
                 
 
             </div>
-           @*<div class="form-group">
-                <label asp-for="CountryId" class="control-label"></label>
-                <input asp-for="CountryId" class="form-control" />
-                <span asp-validation-for="CountryId" class="text-danger"></span>
-            </div>*@
+        
             <div class="form-group">
                 <label asp-for="StateId" class="control-label"></label>
-                @*<input asp-for="StateId" class="form-control" />*@
+              
                 <select id="stateId" class="form-control" name="StateId">
                 </select>
                 <span asp-validation-for="StateId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CityId" class="control-label"></label>
-              @*  <input asp-for="CityId" class="form-control" />*@
+             
                 <select id="city-dd" class="form-control" name="CityId">
                 </select>
                 <span asp-validation-for="CityId" class="text-danger"></span>
@@ -79,7 +67,7 @@
             </div>
             <br />
             <div class="form-group">
-                @* <a asp-action="Index">Back to List</a>*@
+            
                
             </div>
         </form>

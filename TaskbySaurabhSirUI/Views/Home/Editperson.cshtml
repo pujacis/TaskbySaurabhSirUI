@@ -4,95 +4,124 @@
     ViewData["Title"] = "Editperson";
 }
 
-<h1>Editperson</h1>
 
-<h4>Person</h4>
+<section class="vh-100 bg-image"
+         style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+
+                        <form asp-action="Editperson" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            @Html.HiddenFor(model => model.PersonId)
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-group">
+                                        <label asp-for="FirstName" class="control-label"></label>
+                                        <input asp-for="FirstName" class="form-control" />
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label asp-for="LastName" class="control-label"></label>
+                                        <input asp-for="LastName" class="form-control" />
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label asp-for="Email" class="control-label"></label>
+                                        <input asp-for="Email" class="form-control" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label asp-for="Address" class="control-label"></label>
+                                        <input asp-for="Address" class="form-control" />
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label asp-for="CountryId" class="control-label"></label>
+
+                                            @Html.DropDownListFor(x=>x.CountryId , (IEnumerable<SelectListItem>)ViewBag.Con, new { id = "CountryId", @class = "form-control" })
+
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="StateId" class="control-label"></label>
+
+                                            <select id="stateId" class="form-control" name="StateId">
+                                            </select>
+                                            <span asp-validation-for="StateId" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="CityId" class="control-label"></label>
+
+                                            <select id="city-dd" class="form-control" name="CityId">
+                                            </select>
+                                            <span asp-validation-for="CityId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <img width="300" height="200" src="@String.Format("data:image/jpg;base64,{0}",Model.base64data)" />
+                                        </div>
+                                </div>
+
+                              
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+
+                                            <div class="form-group">
+                                                <label asp-for="FileName" class="control-label"></label>
+                                                <input asp-for="FileName" class="form-control" />
+                                                <span asp-validation-for="FileName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-group">
+                                                <label asp-for="base64data" class="control-label"></label>
+                                                <input asp-for="base64data" type="file" class="form-control" />
+                                                <span asp-validation-for="base64data" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="btn-group btn-group-sm">
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn-primary" style="margin-right:10px" />
+                                    </div>
+                                    <div>
+                                        <a asp-action="GetPerson" class="btn btn-primary">Back</a>
+
+                                    </div>
+                                </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Editperson" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.HiddenFor(model => model.PersonId)
-            @* <div class="form-group">
-            <label asp-for="PersonId" class="control-label"></label>
-            <input asp-for="PersonId" class="form-control" />
-            <span asp-validation-for="PersonId" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CountryId" class="control-label"></label>
-
-                @Html.DropDownListFor(x=>x.CountryId , (IEnumerable<SelectListItem>)ViewBag.Con, new { id = "CountryId", @class = "form-control" })
-
-
-            </div>
-            @*<div class="form-group">
-            <label asp-for="CountryId" class="control-label"></label>
-            <input asp-for="CountryId" class="form-control" />
-            <span asp-validation-for="CountryId" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="StateId" class="control-label"></label>
-                @*<input asp-for="StateId" class="form-control" />*@
-                <select id="stateId" class="form-control" name="StateId">
-                </select>
-                <span asp-validation-for="StateId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CityId" class="control-label"></label>
-                @*  <input asp-for="CityId" class="form-control" />*@
-                <select id="city-dd" class="form-control" name="CityId">
-                </select>
-                <span asp-validation-for="CityId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FileName" class="control-label"></label>
-                <input asp-for="FileName" class="form-control" />
-                <span asp-validation-for="FileName" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="base64data" class="control-label"></label>
-                <input asp-for="base64data" type="file" class="form-control" />
-                <span asp-validation-for="base64data" class="text-danger"></span>
-            </div>
-            @* <input asp-for="base64data" class="form-control" />*@
-            @* <img src="@String.Format("data:image/jpg;base64,{0}",Model.base64data)" />*@
-            <div class="form-group">
-                <img width="300" height="200" src="@String.Format("data:image/jpg;base64,{0}",Model.base64data)" />
-            </div>
-            <div class="btn-group btn-group-sm">
-            <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" style="margin-right:10px" />
-            </div>
-          
-                <div>
-                    <a asp-action="GetPerson" class="btn btn-primary">Back</a>
-                    @* <a asp-action="GetPerson">Back to List</a>*@
-                </div>
-                </div>
-           
-        </form>
     </div>
 </div>
 
@@ -111,7 +140,7 @@
             setTimeout(function () {
                 GetCityByState();
             }, 200);
-           
+
 
         });
 
@@ -148,7 +177,7 @@
 
 
         function GetCityByState() {
-            
+
             var StateId = $('#stateId').val();
             $("#city-dd").html('');
             $.ajax({
@@ -168,7 +197,7 @@
                 }
             });
         }
-                
+
 
 
     </script>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http.Json;
@@ -77,9 +78,15 @@ namespace TaskbySaurabhSirUI.Controllers
             HttpContext.Session.SetString("accesstoken", "");
             return RedirectToAction("Index");
         }
+		[AllowAnonymous]
+		public ActionResult ForgotPassword()
+		{
+			return View();
+		}
 
-    }
-    public class Root
+
+	}
+	public class Root
     {
         public string token { get; set; }
         public DateTime expiration { get; set; }

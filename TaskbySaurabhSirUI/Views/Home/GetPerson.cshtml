@@ -11,7 +11,7 @@
 
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
-<h1>GetPerson</h1>
+
 
 <p>
        
@@ -19,7 +19,7 @@
 </p>
 
    
-<table class="table" id="example" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+<table class="table" id="example" class="table table-hover table-striped table-bordered " width="100%" cellspacing="0">
     <thead>
         <tr>
         
@@ -44,9 +44,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Address)
             </th>
-           @* <th>
-                @Html.DisplayNameFor(model => model.FileName)
-            </th>*@
+         
             <th>
                 @Html.DisplayNameFor(model => model.base64data)
             </th>
@@ -56,9 +54,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-           @* <td>
-                @Html.DisplayFor(modelItem => item.PersonId)
-            </td>*@
+         
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
@@ -81,18 +77,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
+            
             <td>
-               @* @Html.DisplayFor(modelItem => item.FileName)*@
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.base64data)*@
+             
                     <img width="300" height="200" src="@String.Format("data:image/jpg;base64,{0}",item.base64data)" />
             </td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                  @*  @Html.ActionLink("Edit", "Editperson", new {  id=item.PersonId  }) 
-                    @Html.ActionLink("Details", "Details", new {  id=item.PersonId  })
-                    @Html.ActionLink("Delete", "Deleteperson", new {  id=item.PersonId  })*@
+                 
                             <a asp-action="Editperson" asp-route-id="@item.PersonId" class="btn btn-sm btn-warning"> <i class="fa-solid fa-pen-to-square"></i>Edit</a>
                             <a asp-action="Details" asp-route-id="@item.PersonId" class="btn btn-sm btn-primary"> <i class="fa-solid fa-circle-info"></i>Details</a>
                             <a asp-action="Deleteperson" asp-route-id="@item.PersonId" class="btn btn-sm btn-danger">  <i class="far fa-trash-alt"></i>Delete</a>
@@ -104,13 +96,8 @@
     </tbody>
 </table>
 
-
-@*<link href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css" rel="stylesheet" />
-*@
 @section Scripts {
-  @*  <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <link href="  https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js" rel="stylesheet" />*@
+  
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
