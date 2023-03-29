@@ -6,129 +6,141 @@
 }
 
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreatePerson" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-         
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+
+<section class="vh-100 bg"
+         style="background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));">
+            <div class="container py-5 h-100">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-12 col-lg-9 col-xl-7">
+                        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                            <div class="card-body p-4 p-md-5">
+                                <form asp-action="CreatePerson" enctype="multipart/form-data">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <div class="form-group">
+                                        <label asp-for="FirstName" class="control-label"></label>
+                                        <input asp-for="FirstName" class="form-control" />
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="LastName" class="control-label"></label>
+                                        <input asp-for="LastName" class="form-control" />
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Email" class="control-label"></label>
+                                        <input asp-for="Email" class="form-control" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="CountryId" class="control-label"></label>
+
+                                        @Html.DropDownList("CountryId" , (IEnumerable<SelectListItem>)ViewBag.Con, new { id = "CountryId", @class = "form-control" })
+
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="StateId" class="control-label"></label>
+
+                                        <select id="stateId" class="form-control" name="StateId">
+                                        </select>
+                                        <span asp-validation-for="StateId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="CityId" class="control-label"></label>
+
+                                        <select id="city-dd" class="form-control" name="CityId">
+                                        </select>
+                                        <span asp-validation-for="CityId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Address" class="control-label"></label>
+                                        <input asp-for="Address" class="form-control" />
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="base64data" class="control-label"></label>
+                                        <input asp-for="base64data" type="file" class="form-control" />
+                                        <span asp-validation-for="base64data" class="text-danger"></span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <input type="submit" value="Create" class="btn  btn-success" />
+                                        <a asp-action="GetPerson" class="btn btn-primary">Back</a>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-             <div class="form-group">
-                <label asp-for="CountryId" class="control-label"></label>
-
-                @Html.DropDownList("CountryId" , (IEnumerable<SelectListItem>)ViewBag.Con, new { id = "CountryId", @class = "form-control" })
-                
-
-            </div>
-        
-            <div class="form-group">
-                <label asp-for="StateId" class="control-label"></label>
-              
-                <select id="stateId" class="form-control" name="StateId">
-                </select>
-                <span asp-validation-for="StateId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CityId" class="control-label"></label>
-             
-                <select id="city-dd" class="form-control" name="CityId">
-                </select>
-                <span asp-validation-for="CityId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-          
-            <div class="form-group">
-                <label asp-for="base64data" class="control-label"></label>
-                <input asp-for="base64data" type="file" class="form-control" />
-                <span asp-validation-for="base64data" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn  btn-success" />
-                <a asp-action="GetPerson" class="btn btn-primary">Back</a>
-            </div>
-            <br />
-            <div class="form-group">
-            
-               
-            </div>
-        </form>
-    </div>
-</div>
+        </section>
+   
 
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
 
- <script src="~/lib/jquery/dist/jquery.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- <script type="text/javascript">
-  $(document).ready(function () {
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
             GetStateByCountry();
 
-      });
-        function display() {           
-            HttpContext.Session.SetString("accesstoken", "");          
-                sessionStorage.clear();
-            }
+        });
+        function display() {
+            HttpContext.Session.SetString("accesstoken", "");
+            sessionStorage.clear();
+        }
 
-        
+
 
 
         $('#CountryId').on('change', function () {
-           
-                 GetStateByCountry();
-               });
-      function GetStateByCountry(){
-           var countryId = $("#CountryId").val();
-                $("#stateId").html('');
-                $.ajax({
-                    url: "/Home/GetStateById",
-                    type: "Post",
-                    data: {"CountryId": countryId  },
-                    dataType: 'json',
-                    success: function (result) {
-                        console.log(result);
-                        $('#stateId').html('<option value="">Select State</option>');
-                        $.each(result, function (key, value) {
-                           
-                            $("#stateId").append('<option value="' + value
-                                .stateId + '">' + value.stateName + '</option>');
 
-                        });
-                        //$('#city-dd').html('<option value="">Select City</option>');
-                    }
-                });
+            GetStateByCountry();
+        });
+        function GetStateByCountry() {
+            var countryId = $("#CountryId").val();
+            $("#stateId").html('');
+            $.ajax({
+                url: "/Home/GetStateById",
+                type: "Post",
+                data: { "CountryId": countryId },
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+                    $('#stateId').html('<option value="">Select State</option>');
+                    $.each(result, function (key, value) {
 
-                  $('#stateId').on('change', function () {
+                        $("#stateId").append('<option value="' + value
+                            .stateId + '">' + value.stateName + '</option>');
+
+                    });
+                    //$('#city-dd').html('<option value="">Select City</option>');
+                }
+            });
+
+            $('#stateId').on('change', function () {
                 var StateId = $('#stateId').val();
 
-         
+
                 $("#city-dd").html('');
                 $.ajax({
-                    url:  "/Home/GetCity",
+                    url: "/Home/GetCity",
                     type: "POST",
-                    data: { "stateid": StateId},
+                    data: { "stateid": StateId },
 
                     dataType: 'json',
                     success: function (res) {
@@ -143,9 +155,9 @@
             });
         };
 
- 
- </script>
-     
- 
+
+    </script>
+
+
 
 }
